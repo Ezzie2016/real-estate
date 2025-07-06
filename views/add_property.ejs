@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    
+    <% let type = ['Self Contain', '1 Bedroom Residential', '2 Bedroom Residential','3 Bedroom Residential',
+            '4 Bedroom Residential', '5 Bedroom Residential', '3 Bedroom Commercial', '4 Bedroom Commercial',
+            '5 Bedroom Commercial', 'Warehouse', 'Land', 'Uncompleted Building'] %>
+
+
+    <% let dt = ['Rent', 'Buy', 'Shortlet', 'Land'] %>
+
+    <% let count = ['1', '2', '3', '4', '5', '6', '7', 'NA'] %>
+
+
+
+
+<section class="up">
+    <img src="images/logos/logo.png" width="50">
+</section>
+<section class="details">
+    <section class="details-left">
+
+
+        <section class="profile">
+        <div class="pic"></div>
+            <h5>@<%- uname %></h5>
+        
+        </section>
+
+
+        <section class="navigation">
+            <ul>
+                <li><a href="/dashboard"><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+                <li><a href="/addProperty"><i class="fa-solid fa-house"></i>View properties</a></li>
+                <li><a href="/viewProperty"><i class="fa-solid fa-eye"></i>View Listing</a></li>
+                <li><a href="/logout"><i class="fa-solid fa-lock"></i>Logout</a></li>
+            </ul>
+        </section>
+    </section>
+    <section class="details-right">
+        <% if(typeof(message) !== "undefined"){ %>
+                        <h5 style="color:blue"><%- message %></h5>
+                    <% } %>
+
+                    <% if(typeof(error_msg) !== "undefined") { %>
+                        <h5 style="color:red"><%- error_msg %></h5>
+                    <% } %>
+
+                    <% if(typeof(errors) !== 'undefined'){ %>
+                            <% errors.forEach((er) => { %>
+                                    <h5 style="color:red"><%- er.msg %></h5>
+                        <% }) %>
+                    <% } %>
+
+                        <h3>Property Listing Form</h3>
+                    <p>Please fill the form fields below</p>
+
+                    <form action="/addProperty" method="post" enctype="multipart/form-data">
+                        
+                        <p>Property Name</p>
+                        <input type="text" name="pname">
+                        <p>Description</p>
+                        <textarea name="description" rows="10" cols="50"></textarea>
+                        <p>Property Type</p>
+                        <select name="propertyType">
+                                <option value="">Select Property Type</option>
+                        <% type.forEach((tp) => { %>
+                                <option value="<%- tp %>"><%- tp %></option>
+                            <% }) %>
+                        </select>
+
+                        <p>Deal Type</p>
+                        <select name="dealType">
+                                <option value="">Select Deal Type</option>
+                        <% dt.forEach((dt) => { %>
+                                <option value="<%- dt %>"><%- dt %></option>
+                            <% }) %>
+                        </select>
+                        <p>Price</p>
+                        <input type="text" name="price">
+                        <p>Total Package</p>
+                        <input type="text" name="totalPackage">
+                        <p>Number Of Rooms</p>
+                        <select name="numberOfRooms">
+                            <% count.forEach((ct) => { %>
+                                    <option value="<%-ct %>"><%-ct %></option>
+                            <% }) %>
+                        </select>
+
+                        <p>Number Of Toilets</p>
+                        <select name="numberOfToilets">
+                            <% count.forEach((ct) => { %>
+                                    <option value="<%-ct %>"><%-ct %></option>
+                            <% }) %>
+                        </select>
+
+                        <p>Number Of Bathrooms</p>
+                        <select name="numberOfBathrooms">
+                            <% count.forEach((ct) => { %>
+                                    <option value="<%-ct %>"><%-ct %></option>
+                            <% }) %>
+                        </select>
+                        <p>How Many Squaremeter?</p>
+                        <input type="text" name="squaremeter">
+                        <p>Address</p>
+                        <textarea name="address" rows="10" cols="50"></textarea>
+                        <p>Location</p>
+                        <input type="text" name="location">
+                        <p>State</p>
+                        <input type="text" name="state">
+                        <p>Whatsapp Contact</p>
+                        <input type="text" name="whatsapp">
+                        <input type="file"name="image">
+                        <input type="submit" value="Click to Add">
+
+                    </form>
+    </section>
+</section>
+
+
+
+ 
+
+        
+    
+</body>
+</html>

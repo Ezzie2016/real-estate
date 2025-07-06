@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="up">
+       <a href="/dashboard"><img src="images/logos/logo.png" width="50"></a> 
+    </section>
+    <section class="details">
+        <section class="details-left">
+
+
+<section class="profile">
+   <div class="pic"></div>
+    <h5>@<%- uname %></h5>
+  
+</section>
+
+
+<section class="navigation">
+    <ul>
+        <li><a href="/dashboard"><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+        <li><a href="/addProperty"><i class="fa-solid fa-house"></i>View properties</a></li>
+        <li><a href="/viewProperty"><i class="fa-solid fa-eye"></i>View Listing</a></li>
+        <li><a href="/logout"><i class="fa-solid fa-lock"></i>Logout</a></li>
+    </ul>
+</section>
+</section>
+
+<section class="details-right">
+        <h5>Your Listings</h5>
+        <% records.forEach((recs) => { %>
+                <div>
+                    <img src="data:image/ <%= recs.image.contentType %>;base64,
+                    <%= recs.image.data.toString('base64') %>" width="200">
+                    <p>Property Name: <%- recs.pname %></p>
+                    <p>Description: <%- recs.description %></p>
+                    <p>Property Type: <%- recs.propertyType %></p>
+                    <p>Deal Type: <%- recs.dealType %></p>
+                    <p>Number of Rooms: <%- recs.numberOfRooms %></p>
+                    <p>Number of Toilets: <%- recs.numberOfToilets %></p>
+                    <button><a href="/delete/<%- recs._id %>">Edit</a></button>
+                    <button><a href="/delete/<%- recs._id %>">Delete</a></button>
+                </div>
+                <hr>
+       <%  }) %>
+   </section>     
+    </section>
+</body>
+</html>

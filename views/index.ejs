@@ -1,0 +1,52 @@
+
+<%- include('header.ejs') %>
+
+            <section class="banner">
+                <h2>Almost 5000 new home listings every week</h2>
+            </section>
+
+<section class="search">
+
+<form action="/search" method="post">
+    <select name="type">
+        <option>Property Type</option>
+        <% type.forEach((type) => {
+            %> <option value="<%- type %>"><%- type %></option>
+        <% }) %>
+    </select>
+
+    <select name="location" id="two">
+        <option>Location</option>
+        <% location.forEach((location) => { %>
+            <option value="<%- location %>"><%- location %></option>
+       <% }) %>
+    </select>
+    <input type="submit" value="Search">
+
+
+</form>
+</section>
+
+<section class="partners">
+    <h2>Real Estate Partners</h2>
+    <div class="grid-partners">
+        <div><img src="images/logos/diya.jpg"></div>
+        <div><img src="images/logos/ubosi.jpg"></div>
+        <div><img src="images/logos/facibus.png"></div>
+        <div><img src="images/logos/Brains.jpg"></div>
+    </div>
+</section>
+
+<section class="partners">
+    <h2>Mortgage Partners</h2>
+    <div class="grid-partners">
+        <div><img src="images/logos/ag-mortgage.png"></div>
+        <div><img src="images/logos/gateway.png"></div>
+        <div><img src="images/logos/fha-mortgage.jpg"></div>
+        <div><img src="images/logos/platinum-mortgage.jpg"></div>
+    </div>
+</section>
+
+<%- include('footer.ejs') %>
+
+           

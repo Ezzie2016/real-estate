@@ -1,0 +1,35 @@
+
+<%- include('header.ejs') %>
+
+        <section class="grid-box">
+
+            <section class="grid-box1"></section>
+            <section class="grid-box2">
+                <h3>Login Form</h3>
+                <p>Please fill the form fields below</p>
+
+                 <% if(typeof(message) !== "undefined"){ %>
+                    <h5 style="color:blue"><%- message %></h5>
+                <% } %>
+
+                <% if(typeof(error_msg) !== "undefined") { %>
+                    <h5 style="color:red"><%- error_msg %></h5>
+                <% } %>
+
+                <% if(typeof(errors) !== 'undefined'){ %>
+                        <% errors.forEach((er) => { %>
+                                <h5 style="color:red"><%- er.msg %></h5>
+                       <% }) %>
+                <% } %>
+
+                <form action="/login" method="post">
+                    
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="password" name="password" placeholder="Your Password">
+                    <input type="submit" value="Login">
+                </form>
+            </section>
+
+        </section>
+
+<%- include('footer.ejs') %>

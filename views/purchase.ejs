@@ -1,0 +1,26 @@
+<%- include('header.ejs') %>
+<section class="search-section">
+
+    <h2>Properties for sale</h2>
+<section class="search-result">
+    <% results.forEach((rs) => { %>
+        <div class="list">
+            <div class="img">
+                <img src="data:image/<%= rs.image.contentType %>;base64, <%=rs.image.data.toString('base64') %>">
+            </div>
+            <div class="cont">
+                <p class="desc"><%- rs.description %></p>
+                <p class="icons">
+                    <span class="ic"><i class="fa-solid fa-bed"></i><%- rs.numberOfRooms %></span>
+                    <span class="ic"><i class="fa-solid fa-toilet"></i><%- rs.numberOfToilets%></span>
+                    <span class="ic"><i class="fa-solid fa-bath"></i><%- rs.numberOfBathrooms %></span>
+                </p>
+                <p class="price"><%- rs.price %></p>
+                <p class="location"><%- rs.location %></p>
+                <p class="whatsapp"><a href="https://wa.me/<%- rs.whatsapp %>"><i class="fa-brands fa-whatsapp fa-2x"></i></a></p>
+            </div>
+        </div>
+    <% }) %>
+    </section>
+</section>
+<%- include('footer.ejs') %>
