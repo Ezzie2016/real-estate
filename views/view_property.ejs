@@ -20,7 +20,7 @@
 
 <section class="profile">
    <div class="pic"></div>
-    <h5>@<%- uname %></h5>
+    <h5>@<%= uname %></h5>
   
 </section>
 
@@ -39,16 +39,14 @@
         <h5>Your Listings</h5>
         <% records.forEach((recs) => { %>
                 <div>
-                    <img src="data:image/ <%= recs.image.contentType %>;base64,
-                    <%= recs.image.data.toString('base64') %>" width="200">
-                    <p>Property Name: <%- recs.pname %></p>
-                    <p>Description: <%- recs.description %></p>
-                    <p>Property Type: <%- recs.propertyType %></p>
-                    <p>Deal Type: <%- recs.dealType %></p>
-                    <p>Number of Rooms: <%- recs.numberOfRooms %></p>
-                    <p>Number of Toilets: <%- recs.numberOfToilets %></p>
-                    <button><a href="/delete/<%- recs._id %>">Edit</a></button>
-                    <button><a href="/delete/<%- recs._id %>">Delete</a></button>
+                    <img src="/property/<%= recs._id %>/image" alt="<%= recs.pname %>" width="200" loading="lazy" decoding="async">
+                    <p>Property Name: <%= recs.pname %></p>
+                    <p>Description: <%= recs.description %></p>
+                    <p>Property Type: <%= recs.propertyType %></p>
+                    <p>Deal Type: <%= recs.dealType %></p>
+                    <p>Number of Rooms: <%= recs.numberOfRooms %></p>
+                    <p>Number of Toilets: <%= recs.numberOfToilets %></p>
+                    <button><a href="/delete/<%= recs._id %>">Delete</a></button>
                 </div>
                 <hr>
        <%  }) %>
