@@ -34,7 +34,7 @@
 
         <section class="profile">
         <div class="pic"></div>
-            <h5>@<%- uname %></h5>
+            <h5>@<%= uname %></h5>
         
         </section>
 
@@ -50,16 +50,16 @@
     </section>
     <section class="details-right">
         <% if(typeof(message) !== "undefined"){ %>
-                        <h5 style="color:blue"><%- message %></h5>
+                        <h5 style="color:blue"><%= message %></h5>
                     <% } %>
 
                     <% if(typeof(error_msg) !== "undefined") { %>
-                        <h5 style="color:red"><%- error_msg %></h5>
+                        <h5 style="color:red"><%= error_msg %></h5>
                     <% } %>
 
                     <% if(typeof(errors) !== 'undefined'){ %>
                             <% errors.forEach((er) => { %>
-                                    <h5 style="color:red"><%- er.msg %></h5>
+                                    <h5 style="color:red"><%= er.msg %></h5>
                         <% }) %>
                     <% } %>
 
@@ -76,7 +76,7 @@
                         <select name="propertyType">
                                 <option value="">Select Property Type</option>
                         <% type.forEach((tp) => { %>
-                                <option value="<%- tp %>"><%- tp %></option>
+                                <option value="<%= tp %>"><%= tp %></option>
                             <% }) %>
                         </select>
 
@@ -84,7 +84,7 @@
                         <select name="dealType">
                                 <option value="">Select Deal Type</option>
                         <% dt.forEach((dt) => { %>
-                                <option value="<%- dt %>"><%- dt %></option>
+                                <option value="<%= dt %>"><%= dt %></option>
                             <% }) %>
                         </select>
                         <p>Price</p>
@@ -94,21 +94,21 @@
                         <p>Number Of Rooms</p>
                         <select name="numberOfRooms">
                             <% count.forEach((ct) => { %>
-                                    <option value="<%-ct %>"><%-ct %></option>
+                                    <option value="<%=ct %>"><%=ct %></option>
                             <% }) %>
                         </select>
 
                         <p>Number Of Toilets</p>
                         <select name="numberOfToilets">
                             <% count.forEach((ct) => { %>
-                                    <option value="<%-ct %>"><%-ct %></option>
+                                    <option value="<%=ct %>"><%=ct %></option>
                             <% }) %>
                         </select>
 
                         <p>Number Of Bathrooms</p>
                         <select name="numberOfBathrooms">
                             <% count.forEach((ct) => { %>
-                                    <option value="<%-ct %>"><%-ct %></option>
+                                    <option value="<%=ct %>"><%=ct %></option>
                             <% }) %>
                         </select>
                         <p>How Many Squaremeter?</p>

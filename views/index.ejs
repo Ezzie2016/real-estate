@@ -11,14 +11,14 @@
     <select name="type">
         <option>Property Type</option>
         <% type.forEach((type) => {
-            %> <option value="<%- type %>"><%- type %></option>
+            %> <option value="<%= type %>"><%= type %></option>
         <% }) %>
     </select>
 
     <select name="location" id="two">
         <option>Location</option>
         <% location.forEach((location) => { %>
-            <option value="<%- location %>"><%- location %></option>
+            <option value="<%= location %>"><%= location %></option>
        <% }) %>
     </select>
     <input type="submit" value="Search">

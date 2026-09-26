@@ -22,4 +22,10 @@ const pSchema = mongoose.Schema({
 
 })
 
+// Every public page filters by dealType (and search by location); the
+// dashboard lists a realtor's own properties newest-first.
+pSchema.index({dealType: 1, location: 1, dateRegistered: -1});
+pSchema.index({location: 1});
+pSchema.index({username: 1, dateRegistered: -1});
+
 module.exports = new mongoose.model('property', pSchema)

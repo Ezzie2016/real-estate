@@ -13,4 +13,8 @@ const rSchema = mongoose.Schema({
         dateRegistered: {type:Date, default:Date.now}
 })
 
+// Login looks realtors up by username; signup checks username/email.
+rSchema.index({username: 1});
+rSchema.index({email: 1});
+
 module.exports = new mongoose.model('realtor', rSchema);
