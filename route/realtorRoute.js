@@ -12,7 +12,9 @@ const express = require('express'),
     router.get('/addProperty', requireLogin, addProperty);
     router.post('/addProperty', requireLogin, upl.single('image'), addPropertyPost);
     router.get('/viewProperty', requireLogin, viewProperty);
-    router.get('/delete/:pid', requireLogin, deleteProperty)
+    //POST (NOT A PLAIN LINK) SO ANOTHER SITE CAN'T TRIGGER A DELETE: THE
+    //SAMESITE=LAX SESSION COOKIE IS NOT SENT ON CROSS-SITE POSTS
+    router.post('/delete/:pid', requireLogin, deleteProperty)
     router.get('/logout', logout);
 
 

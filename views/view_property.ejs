@@ -46,7 +46,9 @@
                     <p>Deal Type: <%= recs.dealType %></p>
                     <p>Number of Rooms: <%= recs.numberOfRooms %></p>
                     <p>Number of Toilets: <%= recs.numberOfToilets %></p>
-                    <button><a href="/delete/<%= recs._id %>">Delete</a></button>
+                    <form action="/delete/<%= recs._id %>" method="post" onsubmit="return confirm('Delete this listing?')">
+                        <button type="submit">Delete</button>
+                    </form>
                 </div>
                 <hr>
        <%  }) %>
